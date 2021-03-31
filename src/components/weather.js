@@ -2,13 +2,13 @@ import React from "react";
 import "./styles.css";
 import moment from "moment";
 import { IconButton } from "@material-ui/core";
-import ReplayIcon from "@material-ui/icons/Replay";
+import { WbCloudyIcon, ReplayIcon } from "@material-ui/icons";
 
 const WeatherCard = ({ weatherData }) => (
   <div className="main">
     <div className="top">
       <p className="header">{weatherData.name}</p>
-      <IconButton aria-label="Delete">
+      <IconButton aria-label="Delete" color="secondary">
         <ReplayIcon />
       </IconButton>
     </div>
@@ -16,7 +16,10 @@ const WeatherCard = ({ weatherData }) => (
       <p className="day">
         {moment().format("dddd")}, <span>{moment().format("LL")}</span>
       </p>
-      <p className="description">{weatherData.weather[0].main}</p>
+      <p className="description">
+        <WbCloudyIcon />
+        {weatherData.weather[0].main}
+      </p>
     </div>
 
     <div className="flex">
