@@ -26,6 +26,10 @@
   font-family: "Recursive", sans-serif;
 }
 
+.header p {
+  padding: 15px;
+}
+
 .day {
   padding: 15px;
   color: whitesmoke;
