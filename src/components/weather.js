@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import moment from "moment";
 import { IconButton } from "@material-ui/core";
-import AutorenewIcon from "@material-ui/icons/Autorenew";
+import { AutorenewIcon, CloudIcon } from "@material-ui/icons";
 
 const WeatherCard = ({ weatherData }) => (
   <div className="main">
@@ -16,7 +16,10 @@ const WeatherCard = ({ weatherData }) => (
       <p className="day">
         {moment().format("dddd")}, <span>{moment().format("LL")}</span>
       </p>
-      <p className="description">{weatherData.weather[0].main}</p>
+      <p className="description">
+        <CloudIcon />
+        {weatherData.weather[0].main}
+      </p>
     </div>
 
     <div className="flex">
