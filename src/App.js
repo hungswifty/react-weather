@@ -17,7 +17,7 @@ export default function App() {
         setLong(position.coords.longitude);
       });
       await fetch(
-        `${REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${REACT_APP_API_KEY}`
+        `${REACT_APP_API_URL}/weather/?lat=21.0277&lon=105.7671&units=metric&APPID=${REACT_APP_API_KEY}`
       )
         .then(res => res.json())
         .then(result => {
