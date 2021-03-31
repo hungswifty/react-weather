@@ -2,24 +2,21 @@ import React from "react";
 import "./styles.css";
 import moment from "moment";
 import { IconButton } from "@material-ui/core";
-import { WbCloudyIcon, ReplayIcon } from "@material-ui/icons";
+import AutorenewIcon from "@material-ui/icons/Autorenew";
 
 const WeatherCard = ({ weatherData }) => (
   <div className="main">
     <div className="top">
       <p className="header">{weatherData.name}</p>
       <IconButton aria-label="Delete" color="secondary">
-        <ReplayIcon />
+        <AutorenewIcon />
       </IconButton>
     </div>
     <div className="flex">
       <p className="day">
         {moment().format("dddd")}, <span>{moment().format("LL")}</span>
       </p>
-      <p className="description">
-        <WbCloudyIcon />
-        {weatherData.weather[0].main}
-      </p>
+      <p className="description">{weatherData.weather[0].main}</p>
     </div>
 
     <div className="flex">
