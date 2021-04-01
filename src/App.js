@@ -1,40 +1,36 @@
-import React, { useEffect, useState } from "react";
-import Weather from "./components/weather";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import BottomNavigation from "./components/bottomNavigation";
 import "./style.css";
+import weatherData from "./components/weatherdata";
+import Plan from "./components/plan";
 
 export default function App() {
-  const [lat, setLat] = useState([]);
-  const [long, setLong] = useState([]);
-  const [data, setData] = useState([]);
-
-  const REACT_APP_API_KEY = "9f19142d24f7fb28a382af07a45407fd";
-  const REACT_APP_API_URL = "https://api.openweathermap.org/data/2.5";
-
-  useEffect(() => {
-    const fetchData = async () => {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-      });
-      await fetch(
-        `${REACT_APP_API_URL}/weather/?lat=21.0277&lon=105.7671&units=metric&APPID=${REACT_APP_API_KEY}`
-      )
-        .then(res => res.json())
-        .then(result => {
-          setData(result);
-          console.log(result);
-        });
-    };
-    fetchData();
-  }, [lat, long]);
-
   return (
-    <div className="App">
-      {typeof data.main != "undefined" ? (
-        <Weather weatherData={data} />
-      ) : (
-        <div />
-      )}
-    </div>
+    <Router>
+      <div>
+        <h2>Welcome to React Router Tutorial</h2>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <ul className="navbar-nav mr-auto">
+            <li>
+              <Link to={"/"} className="nav-link">
+                {" "}
+                Home{" "}
+              </Link>
+            </li>
+            <li>
+              <Link to={"/contact"} className="nav-link">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <hr />
+        <Switch>
+          <Route exact path="/" component={weatherData} />
+          <Route path="/contact" component={Plan} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
