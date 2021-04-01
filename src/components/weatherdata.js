@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Weather from "./weather";
 
 function WeatherData() {
@@ -17,6 +16,8 @@ function WeatherData() {
         setLat(position.coords.latitude);
         setLong(position.coords.longitude);
       });
+      console.log(lat);
+      console.log(long);
       await fetch(
         //lat = {lat} & long = {long} if not blocked gps
         `${REACT_APP_API_URL}/weather/?lat=21.0277&lon=105.7671&units=metric&APPID=${REACT_APP_API_KEY}`
@@ -32,7 +33,7 @@ function WeatherData() {
 
   return (
     <div className="App">
-      {typeof data.main != "undefined" ? (
+      {typeof data.main !== "undefined" ? (
         <div>
           <Weather weatherData={data} />
         </div>

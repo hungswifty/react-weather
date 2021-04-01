@@ -6,13 +6,11 @@ import Plan from "../components/plan";
 export default function WeatherRouter() {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/weather" component={WeatherData} />
-          <Route path="/plan" component={Plan} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="weather" component={WeatherData} />
+        <Route path="plan" component={Plan} />
+      </Switch>
     </Router>
   );
 }

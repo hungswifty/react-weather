@@ -5,5 +5,10 @@ import WeatherRouter from "./routes/routes";
 import "./style.css";
 
 export default function App() {
-  return <BottomNavigation />;
+  return (
+    <div className="App">
+      <BottomNavigation />
+      <WeatherRouter />
+    </div>
+  );
 }
