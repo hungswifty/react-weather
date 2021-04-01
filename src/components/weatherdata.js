@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Weather from "./weather";
-import "./style.css";
 
 function WeatherData() {
   const [lat, setLat] = useState([]);
@@ -12,6 +11,7 @@ function WeatherData() {
   const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
+    console.log("test weather component");
     const fetchData = async () => {
       navigator.geolocation.getCurrentPosition(function (position) {
         setLat(position.coords.latitude);
