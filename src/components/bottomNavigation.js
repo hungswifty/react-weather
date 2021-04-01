@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import CloudIcon from "@material-ui/icons/Cloud";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import HomeIcon from "@material-ui/icons/Home";
+import WeatherData from "./weatherdata";
+import { withRouter } from "react-router";
 
 const useStyles = makeStyles({
   root: {
@@ -17,13 +19,19 @@ const useStyles = makeStyles({
 
 function WeatherBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState("");
+  const history = useHistory();
+  const handleRouteChange = (newRoute) => {
+    console.log(history);
+    history.push(newRoute);
+  };
 
   return (
     <BottomNavigation
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
+        console.log("change" + newValue);
       }}
       showLabels
       className={classes.root}
@@ -33,21 +41,30 @@ function WeatherBottomNavigation() {
         icon={<HomeIcon />}
         component={Link}
         to="/"
+        value=""
       />
       <BottomNavigationAction
         label="Weather"
         icon={<CloudIcon />}
         component={Link}
-        to="/weather"
+        to="weather"
+        value="weather"
+        onClick={() => {
+          handleRouteChange("/weather");
+        }}
       />
       <BottomNavigationAction
         label="Plan"
         icon={<LocationOnIcon />}
         component={Link}
         to="/plan"
+        value="plan"
+        onClick={() => {
+          handleRouteChange("/plan");
+        }}
       />
     </BottomNavigation>
   );
 }
 
-export default WeatherBottomNavigation;
+export default withRouter(WeatherBottomNavigation);

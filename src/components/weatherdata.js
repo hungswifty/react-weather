@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { withRouter } from "react-router";
 import Weather from "./weather";
 
 function WeatherData() {
@@ -43,4 +44,4 @@ function WeatherData() {
     </div>
   );
 }
-export default WeatherData;
+export default withRouter(WeatherData);
