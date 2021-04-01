@@ -21,7 +21,7 @@ function WeatherData() {
       console.log(long);
       await fetch(
         //lat = {lat} & long = {long} if not blocked gps
-        `${REACT_APP_API_URL}/weather/?lat=21.0277&lon=105.7671&units=metric&APPID=${REACT_APP_API_KEY}`
+        `${REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -33,9 +33,9 @@ function WeatherData() {
   }, [lat, long]);
 
   return (
-    <div className="App">
+    <div class="news-container">
       {typeof data.main !== "undefined" ? (
-        <div>
+        <div class="news-wrapper">
           <Weather weatherData={data} />
         </div>
       ) : (

@@ -11,8 +11,15 @@ import { withRouter } from "react-router";
 const useStyles = makeStyles({
   root: {
     width: "100%",
+    height: '10%',
+    background: 'white',
     position: "absolute",
-    bottom: 0
+    bottom: 0,
+    left: 0
+  },
+  bottom_naviAction: {
+    color: 'lightblue',
+    width: '100%'
   }
 });
 
@@ -25,24 +32,26 @@ function WeatherBottomNavigation() {
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
-        console.log("change" + newValue);
       }}
       showLabels
       className={classes.root}
     >
       <BottomNavigationAction
+        className={classes.bottom_naviAction}
         label="Home"
         icon={<HomeIcon />}
         component={Link}
         to="/"
       />
       <BottomNavigationAction
+        className={classes.bottom_naviAction}
         label="Weather"
         icon={<CloudIcon />}
         component={Link}
         to="weather"
       />
       <BottomNavigationAction
+        className={classes.bottom_naviAction}
         label="Plan"
         icon={<LocationOnIcon />}
         component={Link}
