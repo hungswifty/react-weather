@@ -4,8 +4,8 @@
   height: 100%;
   overflow: scroll;
 }
-.app .news-container,
-.news-wrapper,
+.app .weather-container,
+.weather-wrapper,
 .MuiGrid-container {
   height: inherit;
 }
@@ -45,7 +45,7 @@ body {
 }
 
 .day {
-  padding: 15px;
+  padding: 1vh;
   color: whitesmoke;
   font-family: "Recursive", sans-serif;
   font-size: 20px;
@@ -53,10 +53,12 @@ body {
 }
 
 .temp {
-  padding: 15px;
+  padding: 1vh;
   color: whitesmoke;
   font-family: "Recursive", sans-serif;
-  font-size: 18px;
+  font-size: .9rem;
+  font-weight: bold;
+  text-shadow: 2px 2px #000;
 }
 
 .flex {
@@ -101,8 +103,8 @@ body {
 } */
 
 /* News */
-.news-container {
-  margin-top: 7vh;
+.weather-container,.home-container {
+  margin-top: 6vh;
 }
 .news-lists {
   padding: 0;
@@ -118,10 +120,24 @@ body {
 /* Weather */
 .weather_title {
   background: -webkit-linear-gradient(45deg, #09009f, #049e5e 80%);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 4vh !important;
 }
+
+.weather-grid-item{
+  padding: 10px 0;
+}
+
+.spinner-loading{
+  text-align: center;
+  height: 100%;
+}
+
+.spinner-loading .MuiCircularProgress-root{
+  margin-top: 45vh;
+}
+
 
 /* Bottom Navigation */
 .root {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import Weather from "./weather";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 function WeatherData() {
   const [lat, setLat] = useState([]);
@@ -11,21 +12,19 @@ function WeatherData() {
   const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    console.log("test weather component");
     const fetchData = async () => {
       navigator.geolocation.getCurrentPosition(function (position) {
         setLat(position.coords.latitude);
         setLong(position.coords.longitude);
       });
-      console.log(lat);
-      console.log(long);
       await fetch(
         //lat = {lat} & long = {long} if not blocked gps
-        `${REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${REACT_APP_API_KEY}`
+        `${REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&exclude=hourly,current,minutely,alerts&units=metric&appid=${REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((result) => {
           setData(result);
+          console.log('ket qua weather data tra ve');
           console.log(result);
         });
     };
@@ -33,13 +32,15 @@ function WeatherData() {
   }, [lat, long]);
 
   return (
-    <div class="news-container">
-      {typeof data.main !== "undefined" ? (
-        <div class="news-wrapper">
+    <div class="weather-container">
+      {typeof data.daily !== "undefined" ? (
+        <div class="weather-wrapper">
           <Weather weatherData={data} />
         </div>
       ) : (
-        <div />
+        <div class="spinner-loading">
+          <CircularProgress />
+        </div>
       )}
     </div>
   );
