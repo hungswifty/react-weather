@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Recursive&display=swap");
 
-.app{
+.app {
   height: 100%;
+  overflow: scroll;
 }
-.app .news-container, .news-wrapper, .MuiGrid-container{
+.app .news-container,
+.news-wrapper,
+.MuiGrid-container {
   height: inherit;
 }
 
@@ -11,17 +14,13 @@
   width: 70%;
   margin: auto;
   border-radius: 20px;
-  background: -webkit-linear-gradient(
-    -60deg
-    , #0c067a, #049e5e 60%);
+  background: -webkit-linear-gradient(-60deg, #0c067a, #049e5e 60%);
 }
 
 .top {
   height: 60px;
-  background: -webkit-linear-gradient(
-    60deg
-    , #0c067a, #049e5e 80%);
-  border-bottom: .3vh outset transparent;
+  background: -webkit-linear-gradient(60deg, #0c067a, #049e5e 80%);
+  border-bottom: 0.3vh outset transparent;
   color: whitesmoke;
   padding: 10px;
   border-radius: 20px 20px 0 0;
@@ -32,7 +31,7 @@
 
 .header {
   color: whitesmoke;
-  font-size: 25px;
+  font-size: 1rem;
   border-radius: 20px 20px 0 0;
   font-family: "Recursive", sans-serif;
 }
@@ -41,7 +40,7 @@
   padding: 15px;
 }
 
-body{
+body {
   background-color: aliceblue;
 }
 
@@ -83,17 +82,46 @@ body{
   font-weight: 600;
 }
 
+/* Drawer */
+.MuiToolbar-regular {
+  background: linear-gradient(60deg, #0c067a, #049e5e 80%);
+}
+
+/* main */
+/* .toolbar {
+  display: flex;
+  alignitems: center;
+  justifycontent: flex-end;
+  padding: 0 1;
+}
+
+.content {
+  flexgrow: 1;
+  padding: theme.spacing(3);
+} */
+
+/* News */
+.news-container {
+  margin-top: 7vh;
+}
+.news-lists {
+  padding: 0;
+  margin: auto;
+}
+.root-card {
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 85%;
+}
 
 /* Weather */
-.weather_title{
-  background: -webkit-linear-gradient(
-    45deg
-    , #09009f, #049e5e 80%);
+.weather_title {
+  background: -webkit-linear-gradient(45deg, #09009f, #049e5e 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 4vh !important;
 }
-
 
 /* Bottom Navigation */
 .root {
@@ -109,6 +137,6 @@ body{
   left: 0;
 }
 .bottom_naviAction {
-  color: 'lightblue';
+  color: "lightblue";
   width: 100%;
 }

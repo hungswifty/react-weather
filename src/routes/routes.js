@@ -4,16 +4,19 @@ import WeatherData from "../components/weatherdata";
 import Plan from "../components/plan";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BottomNavigation from "../components/bottomNavigation";
+import Drawer from "../components/drawer";
 
 export default function WeatherRouter() {
   return (
     <Router>
-        <Switch>
-          <Route exact path="/" component={HomeData} />
-          <Route path="/weather" component={WeatherData} />
-          <Route path="/plan" component={Plan} />
-        </Switch>
-        <BottomNavigation />
+      <Drawer />
+      <Switch>
+        <Route exact path="/" component={HomeData} />
+        <Route path="/weather" component={WeatherData} />
+        <Route path="/plan" component={Plan} />
+      </Switch>
+
+      <BottomNavigation />
     </Router>
   );
 }

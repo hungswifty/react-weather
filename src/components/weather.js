@@ -9,13 +9,9 @@ const refresh = () => {
 };
 
 const WeatherCard = ({ weatherData }) => (
-  <Grid 
-    container 
-    direction="row"
-    justify="center"
-    alignItems="center">
+  <Grid container direction="row" justify="center" alignItems="center">
     <Grid item>
-      <Typography className="weather_title" variant="h3" align="center">THỜI TIẾT HÔM NAY</Typography>
+      {/* <Typography className="weather_title" variant="h3" align="center">THỜI TIẾT HÔM NAY</Typography> */}
       <div className="main">
         <div className="top">
           <p className="header">{weatherData.name}</p>
@@ -38,11 +34,15 @@ const WeatherCard = ({ weatherData }) => (
         <div className="flex">
           <p className="sunrise-sunset">
             Sunrise:{" "}
-            {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString("en-IN")}
+            {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString(
+              "en-IN"
+            )}
           </p>
           <p className="sunrise-sunset">
             Sunset:{" "}
-            {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString("en-IN")}
+            {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString(
+              "en-IN"
+            )}
           </p>
         </div>
       </div>
