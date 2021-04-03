@@ -17,6 +17,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import WeatherRouter from "../routes/routes";
 
 const drawerWidth = 240;
 
@@ -155,6 +156,14 @@ export default function PersistentDrawerLeft() {
           ))}
         </List>
       </Drawer>
+      <main
+        className={clsx(classes.content, {
+          [classes.contentShift]: open
+        })}
+      >
+        <div className={classes.drawerHeader} />
+        <WeatherRouter />
+      </main>
     </div>
   );
 }

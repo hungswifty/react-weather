@@ -1,12 +1,12 @@
 import React from "react";
-import WeatherRouter from "./routes/routes";
+import Drawer from "./components/drawer";
 
 import "./style.css";
 
 export default function App() {
   return (
     <div className="App">
-      <WeatherRouter />
+      <Drawer />
     </div>
   );
 }
