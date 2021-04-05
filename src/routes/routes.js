@@ -7,13 +7,13 @@ import BottomNavigation from "../components/bottomNavigation";
 
 export default function WeatherRouter() {
   return (
-    <div class="app-container">
+    <>
       <Switch>
         <Route exact path="/" component={HomeData} />
         <Route path="/weather" component={WeatherData} />
         <Route path="/plan" component={Plan} />
       </Switch>
       <BottomNavigation />
-    </div>
+    </>
   );
 }
