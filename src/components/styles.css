@@ -14,12 +14,12 @@
   width: 70%;
   margin: auto;
   border-radius: 20px;
-  background: -webkit-linear-gradient(-60deg, #0c067a, #049e5e 60%);
+  background: linear-gradient(-60deg, #0c067a, #049e5e 60%);
 }
 
 .top {
   height: 60px;
-  background: -webkit-linear-gradient(60deg, #0c067a, #049e5e 80%);
+  background: linear-gradient(60deg, #0c067a, #049e5e 80%);
   border-bottom: 0.3vh outset transparent;
   color: whitesmoke;
   padding: 10px;
@@ -153,5 +153,11 @@ body {
 }
 .bottom_naviAction {
   color: "lightblue";
+  width: 100%;
+}
+
+/* Miui customs */
+.MuiOutlinedInput-multiline {
+  padding: 0;
   width: 100%;
 }

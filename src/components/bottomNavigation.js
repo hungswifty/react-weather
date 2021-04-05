@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -11,15 +11,15 @@ import { withRouter } from "react-router";
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    height: '10%',
-    background: 'white',
+    height: "10%",
+    background: "white",
     position: "absolute",
     bottom: 0,
     left: 0
   },
   bottom_naviAction: {
-    color: 'lightblue',
-    width: '100%'
+    color: "lightblue",
+    width: "100%"
   }
 });
 

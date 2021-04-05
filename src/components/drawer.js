@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -135,25 +136,30 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {/* Home */}
+          <ListItem button>
+            <ListItemIcon component={Link} to="/">
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
         </List>
         <Divider />
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          {/* Weather */}
+          <ListItem button component={Link} to="/weather">
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText primary="Weather" />
+          </ListItem>
+          {/* Plan */}
+          <ListItem button component={Link} to="/plan">
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Plan" />
+          </ListItem>
         </List>
       </Drawer>
       <main
