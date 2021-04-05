@@ -12,11 +12,23 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import Slide from "@material-ui/core/Slide";
+import Paper from "@material-ui/core/Paper";
 import { fetchFromDB, addToDB, removeFromDB } from "../firebase/firebase";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
+
+const ColoredLine = ({ color }) => (
+  <hr
+    style={{
+      color: color,
+      backgroundColor: color,
+      height: 3,
+      opacity: 0.1
+    }}
+  />
+);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,6 +57,10 @@ const useStyles = makeStyles((theme) => ({
   display_block: {
     marginBottom: "5%",
     display: "block"
+  },
+  noteContainer: {
+    color: "green",
+    padding: theme.spacing(1)
   }
 }));
 
@@ -154,11 +170,14 @@ function Plan() {
         <Grid item xs={12} className="Notes" style={{ marginTop: "20px" }}>
           {notes.map((note, key) => (
             <ul key={key}>
-              <li>
-                <p> {note.timestamp} </p>
-                <h3> {note.title} </h3>
-                <p> {note.content} </p>
-              </li>
+              <Paper elevation={2}>
+                <div className={classes.noteContainer}>
+                  <p> {note.timestamp} </p>
+                  <ColoredLine color="silver" />
+                  <h3> {note.title} </h3>
+                  <p> {note.content} </p>
+                </div>
+              </Paper>
             </ul>
           ))}
         </Grid>
